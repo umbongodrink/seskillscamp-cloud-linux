@@ -88,7 +88,9 @@ OR
 
 
 
-## ENVIRONMENT VARIALBLE
+
+**ENVIRONMENT VARIALBLES - "EN VARS"**
+
 
 `printenv`  -   show environment variables
 

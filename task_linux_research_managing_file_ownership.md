@@ -85,3 +85,146 @@ Read-only (r--) for the group and others: Members of the group and other users c
 Read and Execute (rx) for the group and others: Members of the group and other users can read the contents of the directory and access files within it, but they cannot create, modify, or delete files or subdirectories.
 
 
+## VIEWING FILE OWNERSHIP
+
+```ls -l filename.txt```
+
+
+### WHY DOES THE OWNER OF A FILE NOT RECEIVE X PERMISSIONS BY DEFAULT WHEN CREATING A FILE?
+
+- **Security**: helps prevent accidental execution of potentially malicious code
+- **File Types**: not all file types are meant to be executed (e.g. image types, text types etc)
+
+
+### WHAT COMMAND IS USED TO CHANGE THE OWNER OF A FILE?
+
+```
+sudo chown new_owner:new_group filename.txt
+```
+
+
+### If you give permissions to the User entity, what does that mean?
+
+This means granting a single user specific rights or privileges (to access and interact with certain resources)
+
+
+### If you give permissions to the Group entity, what does that mean?
+
+This means giving permissions to a *set* of users that belong to that set ("group"). By using Group permissions you can
+- **simplify administration**: by grouping users together, so you don't have to change permissions on an individual one-by-one basis
+- **improve security**: by limiting to specific sets of people
+
+
+### If you give permissions to the Other entity, what does that mean?
+
+This means granding permissions to anyone who doesn't specifically belong to the owner or group of a file or directory. NOTE: It's important to balance security and accessibility when setting "Other" permissions. Overly permissive permissions can expose sensitive information, while overly restrictive permissions can hinder collaboration.
+
+
+### You give the following permissions to a file: User permissions are read-only, Group permissions are read and write, Other permissions are read, write and execute. You are logged in as the user which is the owner of the file. What permissions will you have on this file?
+
+*As the owner of the file, you will have the permissions specified for the User category, which in this case is read-only.* This means you can view the contents of the file but cannot modify or execute it.
+
+Even though you are the owner, the specific permissions assigned to the User category will override your default privileges.
+
+
+
+### What numeric values are assigned to each permission?
+
+```
+r = 4
+w = 2
+x = 1
+```
+
+These values are combined to represent the different permission levels:
+```
+rwx = 4 + 2 + 1 = 7
+rw- = 4 + 2 + 0 = 6
+r-- = 4 + 0 + 0 = 4
+```
+When you see a permission string like rwxr-xr-x, it can be represented numerically as 755.
+
+
+### What value would assigne read, write and execute permissions?
+
+7
+
+
+### What value would assign read and execute permissions?
+
+5
+
+### Often, a file or directory's mode/permission are represented by 3 numbers. What do  you think 644 would mean?
+
+- 6: This represents the permissions for the owner.
+4 (read) + 2 (write) = 6
+So, the owner has read and write permissions.
+
+- 4: This represents the permissions for the group.
+4 (read) = 4
+So, the group has read permissions.
+
+- 4: This represents the permissions for others.
+4 (read) = 4
+So, others have read permissions.
+Therefore, a file or directory with the mode 644 has the following permissions:
+
+Owner: Read and write
+Group: Read
+Others: Read
+This is a common permission setting for files, as it allows the owner to modify the file, while others can only view it.
+
+
+### What command changes file permissions?
+
+`chmod`, e.g.
+
+```
+chmod 764 myfile.txt
+```
+This translates to:
+
+7: Owner has read, write, and execute permissions.
+6: Group has read and write permissions.
+4: Others have read permissions.
+
+You can also use symbolic mode changes:
+
+```
+chmod u+x myfile.txt  # Add execute permission for the owner
+chmod g-w myfile.txt  # Remove write permission for the group
+```
+
+
+### To change permissions on a file what must the end user be?
+
+1. **The owner of the file**: This is the most common scenario. The owner has the authority to modify the permissions of their own files.   
+   
+OR
+
+2. **A user with administrative privileges (root)**: A user with root privileges can change the permissions of any file on the system, regardless of ownership.
+
+
+### EXAMPLE OF PERMISSION CHANGING TO testfile.txt:
+
+1. set User to read, Group to read + write + execute, Other to read + write:
+```
+sudo chmod 476 testfile.txt
+sudo chmod u=r, g=rwx,o=rw testfile.txt
+```
+
+2. add execute permissions to all entities:
+
+```
+sudo chmod +x testfile.txt
+```
+
+3. take write permissions away from Group
+```
+sudo chmod g-w testfile.txt
+```
+
+4. Use numeric values to give read + write to User, read access to Group, and no access to Other.
+```
+sudo chmod 640 testfile.txt
+
