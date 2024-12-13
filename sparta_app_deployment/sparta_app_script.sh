@@ -1,16 +1,27 @@
 !#/bin/bash
 
-# stop requiring GUI user input
-export DEBIAN_FRONTEND=noninteractive
+
+# export the environment variable to stop requiring GUI user input, write it to the bashrc file
+echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
+echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
+
+# source the bashrc file
+source ~/.bashrc
 
 # update
 sudo apt update -y
 
-# upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y && sudo needrestart -r a
+# install needrestart if needed
+sudo apt install needrestart
+
+# add the configuration to needrestart.conf
+sudo sed -i '/$nrconf{restart}/c\$nrconf{restart} = "a";' /etc/needrestart/needrestart.conf
+
+# upgrade and take away message for needing restarts
+sudo apt upgrade -y && sudo needrestart -r a
 
 # install nginx
-sudo DEBIAN_FRONTEND=noninteractive apt-get install nginx -y 
+sudo apt-get install nginx -y && sudo needrestart -r a
 
 # install NodeJS 20.0x
 curl -fsSL https://deb.nodesource.com/setup_20.x -o setup_nodejs.sh 
@@ -18,8 +29,36 @@ curl -fsSL https://deb.nodesource.com/setup_20.x -o setup_nodejs.sh
 # add execute permission to the 
 sudo chmod +x setup_nodejs.sh
 
-sudo ./setup_nodejs.sh
+# run the setup script
+sudo ./setup_nodejs.sh 
 
-sudo apt-get install nodejs -y
+# install nodejs
+sudo apt-get install nodejs -y && sudo needrestart -r a
 
- 
+# download the code from github repo
+wget -qO- https://github.com/umbongodrink/cloudfun1-sparta-app/archive/refs/heads/main.zip -O cloudfun1-sparta-app.zip
+
+# install unzip
+sudo apt install unzip -y
+
+# unzip the file
+unzip cloudfun1-sparta-app.zip
+
+# navigate to the directory
+cd cloudfun1-sparta-app-main
+
+# unzip the sparta app zip file
+unzip nodejs20-sparta-test-app.zip
+
+# navigate to the directory
+cd app
+
+# install npm
+sudo npm install
+
+# install pm2
+sudo npm install pm2 -g
+
+# start the app in the background
+node app.js & 
+
