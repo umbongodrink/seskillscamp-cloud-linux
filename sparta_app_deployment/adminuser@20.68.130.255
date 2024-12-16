@@ -1,4 +1,4 @@
-#!/bin/bash
+!#/bin/bash
 
 
 # export the environment variable to stop requiring GUI user input, write it to the bashrc file
@@ -19,9 +19,6 @@ sudo sed -i '/$nrconf{restart}/c\$nrconf{restart} = "a";' /etc/needrestart/needr
 
 # upgrade and take away message for needing restarts
 sudo apt upgrade -y && sudo needrestart -r a
-
-# OR 
-sudo apt upgrade -y
 
 # install nginx
 sudo apt-get install nginx -y && sudo needrestart -r a
