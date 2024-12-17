@@ -13,7 +13,7 @@ export DB_HOST=mongodb://10.0.3.4:27017/posts
 # source the bashrc file
 source ~/.bashrc
 
-# update
+# update the system's package list
 sudo apt update -y
 
 # install needrestart if needed
@@ -24,9 +24,6 @@ sudo sed -i '/$nrconf{restart}/c\$nrconf{restart} = "a";' /etc/needrestart/needr
 
 # upgrade and take away message for needing restarts
 sudo apt upgrade -y && sudo needrestart -r a
-
-# OR 
-sudo apt upgrade -y
 
 # install nginx
 sudo apt-get install nginx -y && sudo needrestart -r a
