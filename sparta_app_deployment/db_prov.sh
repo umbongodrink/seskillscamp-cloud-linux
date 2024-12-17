@@ -48,3 +48,9 @@ sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
 # restart the mongodb service
 sudo systemctl restart mongod
 
+# print the status of the mongodb service
+sudo systemctl status mongod
+
+# print the IP address of the mongodb server
+ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1
+

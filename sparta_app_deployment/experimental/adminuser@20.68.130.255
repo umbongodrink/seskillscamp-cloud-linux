@@ -62,3 +62,20 @@ sudo npm install pm2 -g
 # start the app in the background
 node app.js & 
 
+o "mongodb-org-tools hold" | sudo dpkg --set-selections
+
+# start the mongodb service
+sudo systemctl start mongod
+
+# enable the mongodb service
+sudo systemctl enable mongod
+
+# backup the mongod.conf file
+sudo cp /etc/mongod.conf /etc/mongod.conf.bak
+
+# edit /etc/mongod.conf bindIp address (by default it's localhost, change to 0.0.0.0)
+sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
+
+# restart the mongodb service
+sudo systemctl restart mongod
+

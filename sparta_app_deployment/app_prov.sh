@@ -5,6 +5,11 @@
 echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
 echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
 
+# export the environment variable to add the DB_HOST environment variable, replace the IP address 
+# with the IP address of the mongodb server
+export DB_HOST=mongodb://10.0.3.4:27017/posts
+
+
 # source the bashrc file
 source ~/.bashrc
 
@@ -38,6 +43,12 @@ sudo ./setup_nodejs.sh
 # install nodejs
 sudo apt-get install nodejs -y && sudo needrestart -r a
 
+# download the code from github repo belonging to the user daraymonsta
+# git clone https://github.com/daraymonsta/tech201-sparta-app repo
+
+# navigate to the directory of the app
+# cd repo/app
+
 # download the code from github repo
 wget -qO- https://github.com/umbongodrink/cloudfun1-sparta-app/archive/refs/heads/main.zip -O cloudfun1-sparta-app.zip
 
@@ -62,6 +73,42 @@ sudo npm install
 # install pm2
 sudo npm install pm2 -g
 
-# start the app in the background
-node app.js & 
+# # start the app in the background
+# node app.js & 
+
+## OPTIONAL FOR REVERSE PROXY
+
+# backup the default file
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+
+# edit the default file
+sudo sed -i 's|try_files $uri $uri/ =404;|proxy_pass http://localhost:3000;|' /etc/nginx/sites-available/default
+
+# check the nginx configuration
+sudo nginx -t
+
+# restart the nginx service
+sudo systemctl restart nginx
+
+# enable the nginx service
+sudo systemctl enable nginx
+
+# check the status of the nginx service
+sudo systemctl status nginx
+
+# start the app using pm2
+pm2 start app.js
+
+# print the pid of the app
+echo "The PID of the app is: $(pgrep node)"
+
+# print the status of the app
+echo "The status of the app is: $(pm2 status)"
+
+
+
+
+
+
+
 
