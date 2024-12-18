@@ -2,6 +2,12 @@
 
 # THIS SCRIPT IS FOR PROVISIONING THE MONGODB SERVER
 
+# DATE TESTED:
+# TESTED BY:
+# IMAGE:
+# BEST PRACTICES:
+
+
 # update and upgrade the system, making sure the script is non-interactive for the user via a GUI
 sudo apt update -y && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 

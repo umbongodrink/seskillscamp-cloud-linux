@@ -2,12 +2,18 @@
 
 # THIS SCRIPT IS FOR PROVISIONING THE SPARTA APP
 
+# DATE TESTED:
+# TESTED BY:
+# IMAGE:
+# BEST PRACTICES:
+
+
 # export the environment variable to stop requiring GUI user input, write it to the bashrc file
 echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
 echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
 
 # export the environment variable to add the DB_HOST environment variable, replace the IP address 
-# with the IP address of the mongodb server
+# with the IP address of the mongodb server. 
 export DB_HOST=mongodb://10.0.3.4:27017/posts
 
 # source the bashrc file
@@ -65,13 +71,10 @@ unzip nodejs20-sparta-test-app.zip
 cd app
 
 # install npm
-sudo npm install
+npm install
 
 # install pm2
 sudo npm install pm2 -g
-
-# # start the app in the background
-# node app.js & 
 
 ## OPTIONAL FOR REVERSE PROXY
 
@@ -93,19 +96,14 @@ sudo systemctl enable nginx
 # check the status of the nginx service
 sudo systemctl status nginx
 
+# stop the app if the script has already been run already (if the script has already been run on the same VM)
+pm2 kill
+
 # start the app using pm2
-pm2 start app.js
+pm2 start app.js 
 
 # print the pid of the app
 echo "The PID of the app is: $(pgrep node)"
 
 # print the status of the app
 echo "The status of the app is: $(pm2 status)"
-
-
-
-
-
-
-
-

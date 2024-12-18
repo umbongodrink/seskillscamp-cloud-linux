@@ -36,7 +36,7 @@ Node.js v20.18.1
 adminuser@cloudfun1-kip-uks-se-sparta-app-vm:~/cloudfun1-sparta-app-main/app$
 ```
 
-===> Youget teh error because you are tryng to get a second app instance to use port 3000 but it's already in use by the first app instance.
+===> You get the error because you are tryng to get a second app instance to use port 3000 but it's already in use by the first app instance.
 
 ## Find the Linux command that allows you to find out the process using port 3000?
 
