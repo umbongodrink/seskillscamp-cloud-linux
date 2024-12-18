@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+#### TEST SCRIPT ####
+
 # THIS SCRIPT IS FOR PROVISIONING THE SPARTA APP
 
 # DATE TESTED:
@@ -9,15 +12,15 @@
 
 
 # export the environment variable to stop requiring GUI user input, write it to the bashrc file
-echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
-echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
+# echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
+# echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
 
-# export the environment variable to add the DB_HOST environment variable, replace the IP address 
-# with the IP address of the mongodb server. 
-export DB_HOST=mongodb://10.0.3.4:27017/posts
+# # export the environment variable to add the DB_HOST environment variable, replace the IP address 
+# # with the IP address of the mongodb server. 
+# export DB_HOST=mongodb://10.0.3.4:27017/posts
 
-# source the bashrc file for the current shell
-source ~/.bashrc
+# # source the bashrc file for the current shell
+# source ~/.bashrc
 
 # update the system's package list
 sudo apt update -y
@@ -29,7 +32,7 @@ sudo apt install needrestart
 sudo sed -i '/$nrconf{restart}/c\$nrconf{restart} = "a";' /etc/needrestart/needrestart.conf
 
 # upgrade and take away message for needing restarts
-sudo apt upgrade -y && sudo needrestart -r a
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y && sudo needrestart -r a
 
 # install nginx
 sudo apt-get install nginx -y && sudo needrestart -r a
