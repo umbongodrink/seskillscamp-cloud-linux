@@ -8,10 +8,17 @@ sudo apt update -y && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 # import gnupg and curl
 sudo apt-get install gnupg curl
 
-# import the public key
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
-   --dearmor
+# import the public key. Ignore prompt to overwrite if already exists.
+# curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+#    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+#    --dearmor
+
+# import the public key. Ignore prompt to overwrite if already exists.
+if [ ! -f /usr/share/keyrings/mongodb-server-7.0.gpg ]; then
+   curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+      sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+      --dearmor
+fi
 
 # create a list file
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
