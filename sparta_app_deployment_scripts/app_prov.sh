@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# THIS SCRIPT IS FOR PROVISIONING THE SPARTA APP
 
 # export the environment variable to stop requiring GUI user input, write it to the bashrc file
 echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
@@ -8,7 +9,6 @@ echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
 # export the environment variable to add the DB_HOST environment variable, replace the IP address 
 # with the IP address of the mongodb server
 export DB_HOST=mongodb://10.0.3.4:27017/posts
-
 
 # source the bashrc file
 source ~/.bashrc
