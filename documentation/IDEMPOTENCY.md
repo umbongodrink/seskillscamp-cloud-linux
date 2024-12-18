@@ -16,8 +16,6 @@ Idempotency is important in distributed systems and APIs to ensure reliability a
 
 ## What are Idempotent tools?
 
-Some examples of idempotent tools include:
-
 **Ansible**: An open-source automation tool for configuration management, application deployment, and task automation. Ansible playbooks are designed to be idempotent, ensuring that the desired state is achieved without causing unintended changes when run multiple times.
 
 **Terraform**: An infrastructure as code tool that allows you to define and provision infrastructure using a declarative configuration language. Terraform ensures that the infrastructure matches the desired state defined in the configuration files, making it idempotent.
