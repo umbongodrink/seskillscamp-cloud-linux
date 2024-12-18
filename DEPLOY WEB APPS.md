@@ -73,7 +73,19 @@ You will be prompted to accept the the host wtih the external IP of the "db" vm.
 ```
 rsync -aPrh --append -e "ssh -i ~/.ssh/cloudfun1-kip-az-key" ./db_prov.sh "adminuser@20.77.56.252:/home/adminuser/"
 ```
-NOTE: ammend the path to the db_prov.sh script according to your location. In my instance, the script was in the current working directory.
+NOTE: ammend the path to the db_prov.sh script according to your location. In my instance, the script was in the current working directory. The parameters of the rsync command are as follows:
+
+-a: Archive mode. This flag enables recursion and preserves symbolic links, permissions, timestamps, and other attributes.
+
+-P: Combines --partial and --progress. --partial keeps partially transferred files to resume them later, and --progress shows the progress during the transfer. This isn't super necessary for transferring single files, but for multiple large files, it is pretty essential. If a network outage occurs, the rsync transfer can be resumed from the place it left off. 
+
+-r: Recursively transfer directories and their contents.
+
+-h: Output numbers in a human-readable format.
+
+--append: Append data onto shorter files.
+
+-e "ssh -i ~/.ssh/cloudfun1-kip-az-key": Specifies the remote shell program to use, in this case, SSH with a specific identity file (~/.ssh/cloudfun1-kip-az-key).
 
 If the rsync file transfer is successful, the output will be similar to:
 ```
@@ -82,7 +94,7 @@ db_prov.sh
           2.01K 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=0/1)
 ```
 
-12) returning back to the already-established ssh session to the "db" vm, you can now check the presence of the db_prov.sh script, change the file permissions to execute, and run the script itself. Use the following commands:
+1)  returning back to the already-established ssh session to the "db" vm, you can now check the presence of the db_prov.sh script, change the file permissions to execute, and run the script itself. Use the following commands:
 
 ```
 adminuser@cloudfun1-kip-uks-se-sparta-demo-db-vm:~$ ls
