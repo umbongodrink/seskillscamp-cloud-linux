@@ -1,5 +1,5 @@
 # seskillscamp-cloud-linux
-A Sparta Global repo for learning and demo'ing cloud and linux skills and deployments
+A Sparta Global repo for learning and demo'ing Cloud and Linux skills and deployments, leart through the Sparta Education "Cloud Fundamentals course (November 2024)". 
 
 <br>
 <br>
