@@ -7,3 +7,4 @@ NOTES:
 
 - please see "DEPLOY WEB APPS.md" for documentation on deploying the two-tier sparta web app on Azure
 
+[DEPLOY WEB APPS.md](<DEPLOY WEB APPS.md>)
