@@ -3,7 +3,7 @@
 
 #### TEST SCRIPT ####
 
-# THIS SCRIPT IS FOR PROVISIONING THE SPARTA APP
+## THIS SCRIPT IS FOR PROVISIONING THE SPARTA APP
 
 # DATE TESTED:
 # TESTED BY:
@@ -11,16 +11,10 @@
 # BEST PRACTICES:
 
 
-# export the environment variable to stop requiring GUI user input, write it to the bashrc file
-# echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
-# echo "export NEEDRESTART_MODE=a" >> ~/.bashrc
 
-# # export the environment variable to add the DB_HOST environment variable, replace the IP address 
-# # with the IP address of the mongodb server. 
+# export the environment variable to add the DB_HOST environment variable, replace and update the IP address 
+# with the IP address of the mongodb server. 
 # export DB_HOST=mongodb://10.0.3.4:27017/posts
-
-# # source the bashrc file for the current shell
-# source ~/.bashrc
 
 # update the system's package list
 sudo apt update -y
@@ -49,29 +43,17 @@ sudo ./setup_nodejs.sh
 # install nodejs
 sudo apt-get install nodejs -y && sudo needrestart -r a
 
-# download the code from github repo belonging to the user daraymonsta
-# git clone https://github.com/daraymonsta/tech201-sparta-app repo
+# making the script idempotent, check if this directory exists cloudfun1-sparta-app-code/app
+if [ -d "cloudfun1-sparta-app-code" ]; then
+    # remove the directory
+    rm -rf cloudfun1-sparta-app-code
+fi
 
-# navigate to the directory of the app
-# cd repo/app
-
-# download the code from github repo
-wget -qO- https://github.com/umbongodrink/cloudfun1-sparta-app/archive/refs/heads/main.zip -O cloudfun1-sparta-app.zip
-
-# install unzip
-sudo apt install unzip -y
-
-# unzip the file
-unzip cloudfun1-sparta-app.zip
+# download the code from my github repo
+git clone https://github.com/umbongodrink/cloudfun1-sparta-app-code.git
 
 # navigate to the directory
-cd cloudfun1-sparta-app-main
-
-# unzip the sparta app zip file
-unzip nodejs20-sparta-test-app.zip
-
-# navigate to the directory
-cd app
+cd cloudfun1-sparta-app-code/app
 
 # install npm
 npm install
@@ -79,7 +61,7 @@ npm install
 # install pm2
 sudo npm install pm2 -g
 
-## OPTIONAL FOR REVERSE PROXY
+## OPTIONAL FOR REVERSE PROXY SETUP ##
 
 # backup the default file
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
@@ -95,9 +77,6 @@ sudo systemctl restart nginx
 
 # enable the nginx service
 sudo systemctl enable nginx
-
-# check the status of the nginx service
-sudo systemctl status nginx
 
 # stop the app if the script has already been run already (if the script has already been run on the same VM)
 pm2 kill
