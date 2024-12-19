@@ -2,7 +2,7 @@
 
 # export the environment variable to add the DB_HOST environment variable, replace and update the IP address 
 # with the IP address of the mongodb server. 
-export DB_HOST=mongodb://10.0.3.5:27017/posts
+export DB_HOST=mongodb://10.0.3.4:27017/posts
 
 # change directory to the app directory
 cd cloudfun1-sparta-app-code/app

@@ -59,5 +59,13 @@ sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
 # restart the mongodb service
 sudo systemctl restart mongod
 
+# # print the IP address of the mongodb server
+# ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1
+
+# get the IP address of the mongodb server and assign it to a variable like you do in python: ip_address = "
+ip_address=$(ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1)
+
 # print the IP address of the mongodb server
-ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1
+echo "The internal private subnet IP address of the mongodb server is: $ip_address. Use this for your DB_HOST environment variable."
+
+
