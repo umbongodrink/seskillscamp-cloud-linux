@@ -190,7 +190,7 @@ sudo chmod +x ./app_prov.sh
 
 This should return the basic and default nginx webpage:
 
-![16_app_basic_url](screenshots_deployment/16_app_check_basic_url.png)
+![app_basic_url](../screenshots/bash_scripts/1_app_check_basic_url.png)
 
 You should see the message that the Sparta Test App is running correctly. 
 
@@ -200,7 +200,7 @@ You should see the message that the Sparta Test App is running correctly.
   http://<EXTERNAL_IP_ADDRESS_OF_APP_V/posts>
 ```
 
-![17_app_check_posts](screenshots_deployment/17_app_check_posts.png)
+![app_check_posts](../screenshots/bash_scripts/2_app_check_posts.png)
 
 NOTE: there is no reference to port 3000 in the URL here - this means the reverse-proxy is functioning correctly! The client computer making the request has no need to enter an awkward URL that contains 3000. Indeed, the client has no knowledge that the port forwarding or redirection is taking place. 
 

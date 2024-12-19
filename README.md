@@ -6,10 +6,11 @@ A repository for learning and demo'ing Cloud and Linux skills and deployments, t
 
 ## ESSENTIAL NOTES:
 
-- please see [DEPLOY WEB APPS.md](<DEPLOY WEB APPS.md>) for documentation on deploying the two-tier sparta web app on Azure
+The deployment scripts used by [db_prov.sh](sparta_app_deployment_scripts/db_prov.sh) and [app_prov.sh](sparta_app_deployment_scripts/app_prov.sh) are found in the directory "sparta_app_deployment_scripts".
 
-- the deployment scripts used by [db_prov.sh](sparta_app_deployment_scripts/db_prov.sh) and [app_prov.sh](sparta_app_deployment_scripts/app_prov.sh) are found in the directory "sparta_app_deployment_scripts"
+**These are the final scripts used by my project.**
 
+<br>
 <br>
 
 ## CONTENTS:
@@ -28,8 +29,20 @@ A repository for learning and demo'ing Cloud and Linux skills and deployments, t
 
 - [TECHNICAL ISSUES AND BLOCKERS](documentation/TECHNICAL_HURDLES_AND_BLOCKERS.md)
 
-- **CONCLUSIONS**
+- **ADDITIONAL NOTES AND STUDIES**: during the project's lifetime, various tutorial tasks were undertaken including
 
-- **ADDITIONAL NOTES AND STUDIES**
+    - [WHAT IS THE CLOUD](documentation/TASK_WHAT_IS_CLOUD.md)
+  
+    - [INSTALLING VISUAL STUDIO CODE](documentation/TASK_INSTALL_VS_CODE.md)
+
+    - [LINUX NOTES](documentation/LINUX_NOTES.md)
+  
+    - [MANAGING FILE OWNERSHIP IN LINUX](documentation/TASK_LINUX_RESEARCH_MANAGING_FILE_OWNERSHIP.md)
+
+    - [LINUX PIPING](documentation/TASK_LINUX_PIPING.md)
+
+    - [HOW MANY SERVICES CAN USE A PORT](documentation/TASK_HOW_MANY_SERVICES_CAN_USE_A_PORT.md)
+
+    - [IDEMPOTENCY](documentation/IDEMPOTENCY.md)
 
 

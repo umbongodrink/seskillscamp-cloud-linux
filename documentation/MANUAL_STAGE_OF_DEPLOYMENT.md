@@ -2,11 +2,11 @@
 
 With the architecture now established, we can now build the overall Sparta Global app manually. This involves logging into the Azure portal and following a set of steps to provision the two VMs. 
 
-Please see the document [AZURE PROVISIONING](AZURE_PROVISIONING.md) for more information on this process. 
+Please see [AZURE PROVISIONING](AZURE_PROVISIONING.md) for more information on this process. 
 
 Once the VMs are provisioned, and you are logged in over an SSH session, you can begin to issue the appropriate commands. The two scripts [db_prov.sh](../sparta_app_deployment_scripts/db_prov.sh) and [app_prov.sh](../sparta_app_deployment_scripts/app_prov.sh) document the commands. 
 
-Essentially, a script is a mere list of commands that are known to work. Once they is proven, they can be assembled into a list, which the BASH shell interpreter runs through sequentially from top to bottom, executing each one in turn. 
+Essentially, a script is a mere list of commands that are known to work. Once they are proven, they can be assembled like a recipe, which the BASH shell interpreter runs through sequentially from top to bottom, executing each one in turn. 
 
 The advantage of a script is that you just need to run it once, as opposed to running multiple commands - in this way, much time and effort is saved. 
 
