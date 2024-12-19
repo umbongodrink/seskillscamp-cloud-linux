@@ -2,7 +2,6 @@
 A repository for learning and demo'ing Cloud and Linux skills and deployments, taught through the Sparta Education "Cloud Fundamentals course (November 2024)". 
 
 <br>
-<br>
 
 ## ESSENTIAL NOTES:
 
@@ -10,7 +9,6 @@ The deployment scripts used by [db_prov.sh](sparta_app_deployment_scripts/db_pro
 
 **These are the final scripts used by my project.**
 
-<br>
 <br>
 
 ## CONTENTS:
