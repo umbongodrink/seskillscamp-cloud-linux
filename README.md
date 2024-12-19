@@ -19,7 +19,7 @@ The deployment scripts used by [db_prov.sh](sparta_app_deployment_scripts/db_pro
 
 - [MANUAL STAGE OF DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md) explains the project's first steps.
 
-- **STAGES OF AUTOMATED DEPLOYMENT**:
+- **STAGES OF INCREASINGLY AUTOMATED DEPLOYMENT**:
   
     - [BASH SCRIPTS](documentation/BASH_SCRIPTS.md)
 
