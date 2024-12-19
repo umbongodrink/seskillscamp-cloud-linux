@@ -1,5 +1,7 @@
 # seskillscamp-cloud-linux
-A repository for learning and demo'ing Cloud and Linux skills and deployments, taught through the Sparta Education "Cloud Fundamentals course (November 2024)". 
+A repository for learning and demo'ing Cloud and Linux skills and deployments, taught through the Sparta Education "Cloud Fundamentals course (November 2024)".
+
+The direct aim of the repository is to document the deployment of a two-tier Sparta Global app in the Cloud. 
 
 <br>
 
