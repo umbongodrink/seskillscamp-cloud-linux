@@ -14,9 +14,9 @@ A repository for learning and demo'ing Cloud and Linux skills and deployments, t
 
 ## CONTENTS:
 
-- **ARCHITECTURAL OVERVIEW**: please see the document [ARCHITECTURE_OVERVIEW](documentation/ARCHITECTURE_OVERVIEW.md) for a high-level brief.
+- [ARCHITECTURE_OVERVIEW](documentation/ARCHITECTURE_OVERVIEW.md) contains a high-level brief of the project and its aims.
 
-- **MANUAL STAGE OF DEPLOYMENT**: please see the document [MANUAL_STAGE_OF_DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md) to explain this first step.
+- [MANUAL_STAGE_OF_DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md) explains the project's first steps.
 
 - **STAGES OF AUTOMATED DEPLOYMENT**:
   
