@@ -16,17 +16,17 @@ A repository for learning and demo'ing Cloud and Linux skills and deployments, t
 
 - [ARCHITECTURE_OVERVIEW](documentation/ARCHITECTURE_OVERVIEW.md) contains a high-level brief of the project and its aims.
 
-- [MANUAL_STAGE_OF_DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md) explains the project's first steps.
+- [MANUAL STAGE OF DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md) explains the project's first steps.
 
 - **STAGES OF AUTOMATED DEPLOYMENT**:
   
-    - **BASH SCRIPTS**
+    - [BASH SCRIPTS](documentation/BASH_SCRIPTS.md)
 
-    - **AZURE USER DATA**
+    - [AZURE USER DATA](documentation/AZURE_USER_DATA.md)
 
-    - **CUSTOM IMAGES**
+    - [CUSTOM IMAGES](documentation/CUSTOM_IMAGES.md)
 
-- **TECHNICAL HURDLES & BLOCKERS**
+- [TECHNICAL ISSUES AND BLOCKERS](documentation/TECHNICAL_HURDLES_AND_BLOCKERS.md)
 
 - **CONCLUSIONS**
 
