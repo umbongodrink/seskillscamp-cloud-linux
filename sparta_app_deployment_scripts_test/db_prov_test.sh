@@ -1,23 +1,11 @@
 #!/bin/bash
 
-# THIS SCRIPT IS FOR PROVISIONING THE MONGODB SERVER
-
-# DATE TESTED:
-# TESTED BY:
-# IMAGE:
-# BEST PRACTICES:
-
-
 # update and upgrade the system, making sure the script is non-interactive for the user via a GUI
 sudo apt update -y && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
 # import gnupg and curl
 sudo apt-get install gnupg curl
 
-# import the public key. Ignore prompt to overwrite if already exists.
-# curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-#    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
-#    --dearmor
 
 # import the public key. Ignore prompt to overwrite if already exists.
 if [ ! -f /usr/share/keyrings/mongodb-server-7.0.gpg ]; then
