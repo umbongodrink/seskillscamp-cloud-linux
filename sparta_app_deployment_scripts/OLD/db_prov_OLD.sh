@@ -1,11 +1,23 @@
 #!/bin/bash
 
+# THIS SCRIPT IS FOR PROVISIONING THE MONGODB SERVER
+
+# DATE TESTED:
+# TESTED BY:
+# IMAGE:
+# BEST PRACTICES:
+
+
 # update and upgrade the system, making sure the script is non-interactive for the user via a GUI
 sudo apt update -y && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
-# install gnupg and curl
+# import gnupg and curl
 sudo apt-get install gnupg curl
 
+# import the public key. Ignore prompt to overwrite if already exists.
+# curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+#    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+#    --dearmor
 
 # import the public key. Ignore prompt to overwrite if already exists.
 if [ ! -f /usr/share/keyrings/mongodb-server-7.0.gpg ]; then
@@ -14,7 +26,7 @@ if [ ! -f /usr/share/keyrings/mongodb-server-7.0.gpg ]; then
       --dearmor
 fi
 
-# install the public key for mongodb 7.0, if it doesn't already exist
+# create a list file
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 
 # update the package list now that the mongodb repo has been added
@@ -47,8 +59,8 @@ sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
 # restart the mongodb service
 sudo systemctl restart mongod
 
-# get the IP address of the mongodb server and assign it to a variable like you do in python: ip_address = "
-ip_address=$(ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1)
-
 # print the IP address of the mongodb server
-echo "The internal private subnet IP address of the mongodb server is: $ip_address. Use this for your DB_HOST environment variable."
+ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1
+
+# print the status of the mongodb service
+sudo systemctl status mongod
