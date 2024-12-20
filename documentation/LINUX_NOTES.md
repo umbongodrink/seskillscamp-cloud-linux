@@ -2,13 +2,13 @@
 
 ## General Background
 
-Linux is a clone of Unix used for mainframes in the 1970s
+Linux is a clone of Unix used for mainframes in the 1970s. It is often referred to as "Unix-Like".
 
 Linux:
 - kernel
 - libraries and utilities (hence plug-and-play)
 
-## Linuux Commands
+## Linux Commands
 
 `cat <filename>`   -   output contents of a file
 
