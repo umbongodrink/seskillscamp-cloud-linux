@@ -2,6 +2,8 @@
 
 ![Architecture Diagram](../screenshots/architecture_diagram/ARCHITECTURE.png)
 
+<br>
+
 These instructions document the deployment of the Sparta Global app. In higher-level terms, the app comprises three parts:
 
 - a mongoDB database
