@@ -38,6 +38,6 @@ With that goal achieved, we can now look to streamline the project by adding aut
 
 There are two ways of doing this at this stage:
 
-1) by using Azure User Data
+1) by using [AZURE USER DATA](AZURE_USER_DATA.md)
 
-2) by building Custom Images
+2) by building [CUSTOM IMAGES](CUSTOM_IMAGES.md)
