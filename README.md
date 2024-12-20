@@ -17,7 +17,7 @@ The deployment scripts used by [db_prov.sh](sparta_app_deployment_scripts/db_pro
 
 - [ARCHITECTURE_OVERVIEW](documentation/ARCHITECTURE_OVERVIEW.md) contains a high-level brief of the project and its aims.
 
-- [MANUAL STAGE OF DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md) explains the project's first steps.
+- [MANUAL STAGE OF DEPLOYMENT](documentation/MANUAL_STAGE_OF_DEPLOYMENT.md), together with [AZURE PROVISIONING](documentation/AZURE_PROVISIONING.md) explain the project's first steps.
 
 - **STAGES OF INCREASINGLY AUTOMATED DEPLOYMENT**:
   
