@@ -76,3 +76,7 @@ Here's a breakdown of how this command works:
 3. Search for keyword: xargs grep "keyword" takes the list of files and runs grep "keyword" on each file, searching for the specified keyword.
 4. Count matches: The output of xargs grep "keyword" (lines containing the keyword) is piped to wc -l.
 5. Count lines: wc -l counts the number of lines in the output, which in this case represents the total number of matches of the keyword in all the text files.
+
+
+
+RETURN TO [README](../README.md)
