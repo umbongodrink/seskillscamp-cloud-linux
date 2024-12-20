@@ -35,7 +35,7 @@ cd cloudfun1-sparta-app-code/app
 
 # export the environment variable to add the DB_HOST environment variable, replace and update the IP address 
 # with the IP address of the mongodb server. 
-export DB_HOST=mongodb://10.0.3.4:27017/posts
+export DB_HOST=mongodb://10.0.3.6:27017/posts
 
 # use the newly installed npm to install the app
 npm install
